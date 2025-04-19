@@ -3,138 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Biography Form</title>
-    <style>
-       
-    </style>
+    <title>Document</title>
 </head>
 <body>
-    <h2>Student Biography Form</h2>
-    <form id="bioForm" onsubmit="return validateForm()">
-        <fieldset>
-            <legend><span class="required">Personal Information</span></legend>
-            
-            <div class="form-group">
-                <label class="required">Full Name:</label>
-                <input type="text" name="fullname" required>
-            </div>
-
-            <div class="form-group">
-                <label class="required">Email Address:</label>
-                <input type="email" name="email" required>
-            </div>
-
-            <div class="form-group">
-                <label class="required">Date of Birth:</label>
-                <input type="date" name="dob" required max="2005-12-31">
-            </div>
-
-            <div class="form-group">
-                <label class="required">Gender:</label><br>
-                <input type="radio" name="gender" value="male" required> Male
-                <input type="radio" name="gender" value="female"> Female
-                <input type="radio" name="gender" value="other"> Other
-            </div>
-
-            <div class="form-group">
-                <label class="required">CNIC:</label>
-                <input type="text" name="cnic" pattern="[0-9]{5}-[0-9]{7}-[0-9]{1}" 
-                       placeholder="xxxxx-xxxxxxx-x" required>
-            </div>
-
-            <div class="form-group">
-                <label class="required">Phone Number:</label>
-                <input type="tel" name="phone" pattern="[0-9]{4}-[0-9]{7}" 
-                       placeholder="0300-1234567" required>
-            </div>
-
-            <div class="form-group">
-                <label class="required">Address:</label>
-                <textarea name="address" rows="3" required></textarea>
-            </div>
-
-            <div class="form-group">
-                <label class="required">Country:</label>
-                <select name="country" required>
-                    <option value="">--Select Country--</option>
-                    <option value="Pakistan">Pakistan</option>
-                    <option value="India">India</option>
-                    <option value="USA">USA</option>
-                    <option value="UK">UK</option>
-                    <option value="Canada">Canada</option>
-                </select>
-            </div>
-        </fieldset>
-
-        <fieldset>
-            <legend><span class="required">Academic Information</span></legend>
-            
-            <div class="form-group">
-                <label class="required">Degree Program:</label>
-                <select name="program" required>
-                    <option value="">--Select Program--</option>
-                    <option value="BSCS">BSCS</option>
-                    <option value="BSIT">BSIT</option>
-                    <option value="BBA">BBA</option>
-                    <option value="MBA">MBA</option>
-                    <option value="MSCS">MSCS</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label>Skills:</label>
-                <div class="skills-group">
-                    <label><input type="checkbox" name="skills[]" value="HTML"> HTML</label>
-                    <label><input type="checkbox" name="skills[]" value="CSS"> CSS</label>
-                    <label><input type="checkbox" name="skills[]" value="JavaScript"> JavaScript</label>
-                    <label><input type="checkbox" name="skills[]" value="React"> React</label>
-                    <label><input type="checkbox" name="skills[]" value="Node.js"> Node.js</label>
+    <div class="container">
+        <h2>Student Biography Form</h2>
+        <form id="bioForm" onsubmit="return validateForm()" novalidate>
+            <fieldset>
+                <legend><span class="required">Personal Information</span></legend>
+                <div class="form-group">
+                    <label for="fullname" class="required">Full Name</label>
+                    <input type="text" id="fullname" name="fullname" placeholder="John Doe" required>
                 </div>
-            </div>
+
+                <div class="form-group">
+                    <label for="email" class="required">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="[email protected]" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="dob" class="required">Date of Birth</label>
+                    <input type="date" id="dob" name="dob" required max="2005-12-31">
+                </div>
+
+                <div class="form-group">
+                    <label class="required">Gender</label>
+                    <div>
+                        <label><input type="radio" name="gender" value="male" required> Male</label>
+                        <label><input type="radio" name="gender" value="female"> Female</label>
+                        <label><input type="radio" name="gender" value="other"> Other</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="cnic" class="required">CNIC</label>
+                    <input type="text" id="cnic" name="cnic" pattern="[0-9]{5}-[0-9]{7}-[0-9]{1}" placeholder="xxxxx-xxxxxxx-x" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone" class="required">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" pattern="[0-9]{4}-[0-9]{7}" placeholder="0300-1234567" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="address" class="required">Address</label>
+                    <textarea id="address" name="address" rows="3" placeholder="123 Main St, City, Country" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="country" class="required">Country</label>
+                    <select id="country" name="country" required>
+                        <option value="">--Select Country--</option>
+                        <option value="Pakistan">Pakistan</option>
+                        <option value="India">India</option>
+                        <option value="USA">USA</option>
+                        <option value="UK">UK</option>
+                        <option value="Canada">Canada</option>
+                    </select>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend><span class="required">Academic Information</span></legend>
+                <div class="form-group">
+                    <label for="program" class="required">Degree Program</label>
+                    <select id="program" name="program" required>
+                        <option value="">--Select Program--</option>
+                        <option value="BSCS">BSCS</option>
+                        <option value="BSIT">BSIT</option>
+                        <option value="BBA">BBA</option>
+                        <option value="MBA">MBA</option>
+                        <option value="MSCS">MSCS</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Skills</label>
+                    <div class="skills-group">
+                        <label><input type="checkbox" name="skills[]" value="HTML"> HTML</label>
+                        <label><input type="checkbox" name="skills[]" value="CSS"> CSS</label>
+                        <label><input type="checkbox" name="skills[]" value="JavaScript"> JavaScript</label>
+                        <label><input type="checkbox" name="skills[]" value="React"> React</label>
+                        <label><input type="checkbox" name="skills[]" value="Node.js"> Node.js</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="profile">Upload Profile Picture</label>
+                    <input type="file" id="profile" name="profile" accept="image/*">
+                </div>
+
+                <div class="form-group">
+                    <label for="password" class="required">Password</label>
+                    <div style="position: relative; display: flex;">
+                        <input type="password" name="password" id="password" required style="flex:1;" minlength="8" placeholder="At least 8 characters">
+                        <button type="button" id="togglePassword" aria-label="Show password" style="margin-left:4px;">Show</button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirm_password" class="required">Confirm Password</label>
+                    <input type="password" name="confirm_password" id="confirm_password" required minlength="8">
+                    <span class="error-message" id="passwordError">Passwords do not match</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="bio" class="required">Short Bio</label>
+                    <textarea id="bio" name="bio" rows="4" placeholder="Write a short paragraph about yourself..." required></textarea>
+                </div>
+            </fieldset>
 
             <div class="form-group">
-                <label>Upload Profile Picture:</label>
-                <input type="file" name="profile" accept="image/*">
+                <label><input type="checkbox" name="terms" required> I agree to the <a href="#">terms and conditions</a></label>
             </div>
 
-            <div class="form-group">
-                <label class="required">Password:</label>
-                <input type="password" name="password" id="password" required>
+            <div class="btn-group">
+                <button type="reset">Reset</button>
+                <button type="submit">Submit</button>
             </div>
-
-            <div class="form-group">
-                <label class="required">Confirm Password:</label>
-                <input type="password" name="confirm_password" id="confirm_password" required>
-                <span class="error-message" id="passwordError">Passwords do not match</span>
-            </div>
-
-            <div class="form-group">
-                <label class="required">Short Bio:</label>
-                <textarea name="bio" rows="4" required 
-                          placeholder="Write a short paragraph about yourself..."></textarea>
-            </div>
-        </fieldset>
-
-        <div class="form-group">
-            <label>
-                <input type="checkbox" name="terms" required> 
-                I agree to the <a href="#">terms and conditions</a>
-            </label>
-        </div>
-
-        <div class="form-group">
-            <button type="submit">Submit</button>
-            <button type="reset">Reset</button>
-        </div>
-    </form>
+        </form>
+    </div>
 
     <script>
-        function validateForm() {
-            const password = document.getElementById('password').value;
-            const confirmPassword = document.getElementById('confirm_password').value;
-            const passwordError = document.getElementById('passwordError');
+        // Password match validation
+        const password = document.getElementById('password');
+        const confirmPassword = document.getElementById('confirm_password');
+        const passwordError = document.getElementById('passwordError');
+        const togglePassword = document.getElementById('togglePassword');
 
-            if (password !== confirmPassword) {
+        function validateForm() {
+            if (password.value !== confirmPassword.value) {
                 passwordError.style.display = 'block';
                 return false;
             }
@@ -142,18 +140,25 @@
             return true;
         }
 
-        // Real-time password match checking
-        document.getElementById('confirm_password').addEventListener('input', function() {
-            const password = document.getElementById('password').value;
-            const passwordError = document.getElementById('passwordError');
-            
-            if (this.value !== password) {
-                passwordError.style.display = 'block';
-            } else {
-                passwordError.style.display = 'none';
-            }
+        confirmPassword.addEventListener('input', () => {
+            passwordError.style.display = (confirmPassword.value !== password.value) ? 'block' : 'none';
+        });
+
+        // Toggle show/hide password
+        togglePassword.addEventListener('click', () => {
+            const type = password.type === 'password' ? 'text' : 'password';
+            password.type = type;
+            confirmPassword.type = type;
+            togglePassword.textContent = type === 'password' ? 'Show' : 'Hide';
+        });
+
+        // Hide error on load
+        window.addEventListener('load', () => {
+            passwordError.style.display = 'none';
         });
     </script>
 </body>
-<link rel="stylesheet" href="style.css">
+</html>
+
+</body>
 </html>
