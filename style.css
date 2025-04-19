@@ -3,11 +3,11 @@ body {
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #f4f4f4;
+    background-color: #641919;
 }
 
 fieldset {
-    background-color: white;
+    background-color: rgb(56, 46, 46);
     margin-bottom: 20px;
     border: 2px solid #ddd;
     border-radius: 5px;
@@ -20,7 +20,7 @@ legend {
     padding: 5px 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    background-color: #f8f8f8;
+    background-color: #a10000;
 }
 
 label {
