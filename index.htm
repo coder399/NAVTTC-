@@ -1,74 +1,159 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Biography Form</title>
+    <style>
+       
+    </style>
 </head>
 <body>
     <h2>Student Biography Form</h2>
-    <form>
+    <form id="bioForm" onsubmit="return validateForm()">
         <fieldset>
-            <legend><b>Personal Information</b></legend>
-            <label>Full Name:</label><br>
-            <input type="text" name="fullname"><br><br>
+            <legend><span class="required">Personal Information</span></legend>
+            
+            <div class="form-group">
+                <label class="required">Full Name:</label>
+                <input type="text" name="fullname" required>
+            </div>
 
-            <label>Email Address:</label><br>
-            <input type="email" name="email"><br><br>
+            <div class="form-group">
+                <label class="required">Email Address:</label>
+                <input type="email" name="email" required>
+            </div>
 
-            <label>Date of Birth:</label><br>
-            <input type="date" name="dob"><br><br>
+            <div class="form-group">
+                <label class="required">Date of Birth:</label>
+                <input type="date" name="dob" required max="2005-12-31">
+            </div>
 
-            <label>Gender:</label><br>
-            <input type="radio" name="gender" value="male"> Male
-            <input type="radio" name="gender" value="female"> Female
-            <input type="radio" name="gender" value="other"> Other<br><br>
+            <div class="form-group">
+                <label class="required">Gender:</label><br>
+                <input type="radio" name="gender" value="male" required> Male
+                <input type="radio" name="gender" value="female"> Female
+                <input type="radio" name="gender" value="other"> Other
+            </div>
 
-            <label>CNIC:</label><br>
-            <input type="text" name="cnic" placeholder="xxxxx-xxxxxxx-x"><br><br>
+            <div class="form-group">
+                <label class="required">CNIC:</label>
+                <input type="text" name="cnic" pattern="[0-9]{5}-[0-9]{7}-[0-9]{1}" 
+                       placeholder="xxxxx-xxxxxxx-x" required>
+            </div>
 
-            <label>Phone Number:</label><br>
-            <input type="tel" name="phone"><br><br>
+            <div class="form-group">
+                <label class="required">Phone Number:</label>
+                <input type="tel" name="phone" pattern="[0-9]{4}-[0-9]{7}" 
+                       placeholder="0300-1234567" required>
+            </div>
 
-            <label>Address:</label><br>
-            <textarea name="address" rows="3" cols="30"></textarea><br><br>
+            <div class="form-group">
+                <label class="required">Address:</label>
+                <textarea name="address" rows="3" required></textarea>
+            </div>
 
-<label>Country:</label><br>
-            <select name="country">
-                <option value="">--Select Country--</option>
-                <option value="Pakistan">Pakistan</option>
-                <option value="India">India</option>
-                <option value="USA">USA</option>
-                <option value="UK">UK</option>
-                <!-- Add more countries as needed -->
-            </select>
+            <div class="form-group">
+                <label class="required">Country:</label>
+                <select name="country" required>
+                    <option value="">--Select Country--</option>
+                    <option value="Pakistan">Pakistan</option>
+                    <option value="India">India</option>
+                    <option value="USA">USA</option>
+                    <option value="UK">UK</option>
+                    <option value="Canada">Canada</option>
+                </select>
+            </div>
         </fieldset>
 
-        <br>
-
         <fieldset>
-            <legend><b>Academic Information</b></legend>
+            <legend><span class="required">Academic Information</span></legend>
+            
+            <div class="form-group">
+                <label class="required">Degree Program:</label>
+                <select name="program" required>
+                    <option value="">--Select Program--</option>
+                    <option value="BSCS">BSCS</option>
+                    <option value="BSIT">BSIT</option>
+                    <option value="BBA">BBA</option>
+                    <option value="MBA">MBA</option>
+                    <option value="MSCS">MSCS</option>
+                </select>
+            </div>
 
-            <label>Degree Program:</label><br>
-            <select name="program">
-                <option value="">--Select Program--</option>
-                <option value="BSCS">BSCS</option>
-                <option value="BSIT">BSIT</option>
-                <option value="BBA">BBA</option>
-                <!-- Add more programs as needed -->
-            </select><br><br>
+            <div class="form-group">
+                <label>Skills:</label>
+                <div class="skills-group">
+                    <label><input type="checkbox" name="skills[]" value="HTML"> HTML</label>
+                    <label><input type="checkbox" name="skills[]" value="CSS"> CSS</label>
+                    <label><input type="checkbox" name="skills[]" value="JavaScript"> JavaScript</label>
+                    <label><input type="checkbox" name="skills[]" value="React"> React</label>
+                    <label><input type="checkbox" name="skills[]" value="Node.js"> Node.js</label>
+                </div>
+            </div>
 
- <label>Skills:</label><br>
-            <input type="checkbox" name="skills" value="HTML"> HTML
-            <input type="checkbox" name="skills" value="CSS"> CSS
-            <input type="checkbox" name="skills" value="JavaScript"> JavaScript
-            <input type="checkbox" name="skills" value="React"> React
-            <input type="checkbox" name="skills" value="Node.js"> Node.js<br><br>
+            <div class="form-group">
+                <label>Upload Profile Picture:</label>
+                <input type="file" name="profile" accept="image/*">
+            </div>
 
-            <label>Upload Profile Picture:</label><br>
-            <input type="file" name="profile"><br><br>
+            <div class="form-group">
+                <label class="required">Password:</label>
+                <input type="password" name="password" id="password" required>
+            </div>
 
-            <label>Short Bio:</label><br>
-            <textarea name="bio" rows="4" cols="50" placeholder="Write a short paragraph about yourself..."></textarea>
+            <div class="form-group">
+                <label class="required">Confirm Password:</label>
+                <input type="password" name="confirm_password" id="confirm_password" required>
+                <span class="error-message" id="passwordError">Passwords do not match</span>
+            </div>
+
+            <div class="form-group">
+                <label class="required">Short Bio:</label>
+                <textarea name="bio" rows="4" required 
+                          placeholder="Write a short paragraph about yourself..."></textarea>
+            </div>
         </fieldset>
+
+        <div class="form-group">
+            <label>
+                <input type="checkbox" name="terms" required> 
+                I agree to the <a href="#">terms and conditions</a>
+            </label>
+        </div>
+
+        <div class="form-group">
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+        </div>
     </form>
+
+    <script>
+        function validateForm() {
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm_password').value;
+            const passwordError = document.getElementById('passwordError');
+
+            if (password !== confirmPassword) {
+                passwordError.style.display = 'block';
+                return false;
+            }
+            passwordError.style.display = 'none';
+            return true;
+        }
+
+        // Real-time password match checking
+        document.getElementById('confirm_password').addEventListener('input', function() {
+            const password = document.getElementById('password').value;
+            const passwordError = document.getElementById('passwordError');
+            
+            if (this.value !== password) {
+                passwordError.style.display = 'block';
+            } else {
+                passwordError.style.display = 'none';
+            }
+        });
+    </script>
 </body>
+<link rel="stylesheet" href="style.css">
 </html>
